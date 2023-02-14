@@ -43,11 +43,15 @@ variable "network_mode" {
 }
 
 variable "security_groups" {
-  type        = list(string)
+  type        = list(string) ["subnet-042b0e68ab37ffb04"]
   description = " (Optional) Security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used."
 }
 
 variable "subnets" {
   type        = list(string)
   description = "(Required) Subnets associated with the task or service."
+}
+variable "role_arn" {
+  type        = string
+  description = "role of the account."
 }
