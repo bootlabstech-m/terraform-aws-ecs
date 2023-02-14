@@ -36,19 +36,10 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
 
   execution_role_arn    = aws_iam_role.ecsTaskExecutionRole.arn
   task_role_arn         = aws_iam_role.ecsTaskExecutionRole.arn
-  container_definitions = <<TASK_DEFINITION
-  [
-    {
-      "name": "iis",
-      "image": "mcr.microsoft.com/windows/servercore/iis",
-      "memory": 2048,
-      "essential": true
-    }
-  ]
-  TASK_DEFINITION
+  container_definitions = var.container_definitions
   runtime_platform {
-    operating_system_family = "WINDOWS_SERVER_2019_CORE"
-    cpu_architecture        = "X86_64"
+    operating_system_family = var.operating_system_family
+    cpu_architecture        = var.cpu_architecture
   }
 
 }

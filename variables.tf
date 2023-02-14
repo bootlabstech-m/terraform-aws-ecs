@@ -50,6 +50,27 @@ variable "subnets" {
   type        = list(string)
   description = "(Required) Subnets associated with the task or service."
 }
+variable "container_definitions" {
+  type = string
+  default = <<TASK_DEFINITION
+  [
+    {
+      "name": "iis",
+      "image": "mcr.microsoft.com/windows/servercore/iis",
+      "memory": 2048,
+      "essential": true
+    }
+  ]
+  TASK_DEFINITION
+}
+variable "operating_system_family" {
+  type        = string
+  description = "OS for the cluster."
+}
+variable "cpu_architecture" {
+  type        = string
+  description = "cpu arch for the cluster."
+}
 variable "role_arn" {
   type        = string
   description = "role of the account."
