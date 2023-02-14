@@ -1,7 +1,6 @@
 variable "region" {
   type        = string
   description = "(optional) describe your region"
-  default     = "us-east-2"
 }
 
 variable "ecs_role_name" {
