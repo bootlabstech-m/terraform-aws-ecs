@@ -17,7 +17,7 @@ variable "s3_bucket_name" {
   description = "S3 bucket name to send logs."
 }
 
-variable "app_name" {
+variable "name" {
   type        = string
   description = "(Required) A unique name for your task definition."
 }

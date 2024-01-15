@@ -28,7 +28,7 @@ resource "aws_ecs_cluster" "aws-ecs-cluster" {
 }
 
 resource "aws_ecs_task_definition" "aws-ecs-task" {
-  family                   = "${var.app_name}-task"
+  family                   = "${var.name}-task"
   requires_compatibilities = var.requires_compatibilities
   cpu                      = var.cpu_size
   memory                   = var.memory_size
@@ -45,7 +45,7 @@ resource "aws_ecs_task_definition" "aws-ecs-task" {
 }
 
 resource "aws_ecs_service" "ecs_service" {
-  name            = "${var.app_name}-service"
+  name            = "${var.name}-service"
   cluster         = aws_ecs_cluster.aws-ecs-cluster.arn
   task_definition = aws_ecs_task_definition.aws-ecs-task.arn
   network_configuration {
