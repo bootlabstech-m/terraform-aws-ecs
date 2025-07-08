@@ -2,7 +2,6 @@ variable "region" {
   type        = string
   description = "(optional) describe your region"
 }
-
 variable "ecs_role_name" {
   type        = string
   description = "ECS role name"
@@ -12,10 +11,10 @@ variable "ecs_cluster_name" {
   description = "Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
 }
 
-variable "s3_bucket_name" {
-  type        = string
-  description = "S3 bucket name to send logs."
-}
+# variable "s3_bucket_name" {
+#   type        = string
+#   description = "S3 bucket name to send logs."
+# }
 
 variable "name" {
   type        = string
